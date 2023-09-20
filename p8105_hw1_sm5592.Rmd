@@ -21,11 +21,11 @@ Sys.setlocale("LC_TIME", "US") # change default time zone
 First, load the data set and describe it.
 ```{r}
 data("early_january_weather") # load the dataset
+summary(early_january_weather$temp)
 ```
 
  * The data set has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns.  
- * It contains the following 15 variables: `r variable.names(early_january_weather)`. A summary is as follows: `r knitr::kable(summary(early_january_weather), digits = 2)`  
- * The mean temperature is `r round(mean(early_january_weather$temp),2)`.  
+ * It contains the following 15 variables: `r variable.names(early_january_weather)`. As the temperature and humidity are about to be evaluated below, I take these as important variables. For temperature, the `min`, `max`, `median` values respectively are `r min(early_january_weather$temp)`, `r max(early_january_weather$temp)`, `r median(early_january_weather$temp)`; For humidity,  the `min`, `max`, `median` values respectively are `r min(early_january_weather$humid)`, `r max(early_january_weather$humid)`, `r median(early_january_weather$humid)`. 
  
 Then, make a scatterplot.
 ```{r, message = F}
